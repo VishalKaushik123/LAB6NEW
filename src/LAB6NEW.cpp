@@ -11,9 +11,6 @@
  * Date:
  */
 #include "oled-wing-adafruit.h"
-void setup();
-void loop();
-#line 8 "c:/Users/Vishal/Documents/CTDProjects/LAB6NEW/src/LAB6NEW.ino"
 OledWingAdafruit display;
 uint64_t reading;
 double voltage;
@@ -27,9 +24,6 @@ void setup()
 	// Put initialization like pinMode and begin functions here.
 	pinMode(A5, INPUT); // sets A5 as input to the TMP36
 	display.setup();
-	display.setTextSize(1);
-	display.setCursor(0, 0);
-	display.setTextColor(WHITE);
 	display.display();
 }
 
@@ -42,7 +36,6 @@ void loop()
 	reading = analogRead(A5);
 	voltage = (reading * 3.3) / 4095.0; //converts the reading to a voltage value
 	temperature = (voltage - 0.5) * 100; //converts the voltage value to temperature in celsius
-	display.clearDisplay();
 	display.setTextSize(1);
 	display.setTextColor(WHITE);
 	display.setCursor(0, 0);
